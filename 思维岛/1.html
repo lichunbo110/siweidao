@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style media="screen">
+  .box{
+    color:rgba(255, 0, 0, 0.5);
+  }
+</style>
+<script type="text/javascript">
+// 题目: 完成一个函数,接受数组作为参数,数组元素为整数或者数组,数组元素包含整数或数组,函数返回扁平化后的数组
+var data =  [1, [2, [ [3, 4], 5], 6]];
+function flat(data, result){
+  var i, d, len;
+  for (i = 0, len = data.length; i < len; ++i){
+    d = data[i];
+    if (typeof d === 'number'){
+      result.push(d);
+    } else{
+      flat(d, result);
+    }
+  }
+}
+
+var result = [];
+flat(data, result);
+console.log(result); // 输出的值为 1，2，3，4，5，6
+</script>
+</head>
+<body>
+<div class="box">
+465456646
+</div>
+</body>
+</html>
